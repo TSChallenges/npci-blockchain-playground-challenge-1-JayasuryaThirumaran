@@ -1,4 +1,4 @@
-# GoLang: Functions Practice
+# Assignment 1:GoLang: Functions Practice
 
 
 ## Overview
