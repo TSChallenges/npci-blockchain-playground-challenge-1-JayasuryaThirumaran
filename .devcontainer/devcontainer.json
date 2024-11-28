@@ -1,9 +1,23 @@
 {
   "name": "Chat Server Development",
-  "image": "mcr.microsoft.com/devcontainers/go:1.21", // Go environment
+  "image": "mcr.microsoft.com/devcontainers/go:1.21", 
   "settings": {
     "terminal.integrated.defaultProfile.linux": "bash"
   },
-  "extensions": ["golang.go"], // Add useful extensions
-  "postCreateCommand": "go mod tidy" // Ensure dependencies are set up
+  "extensions": [
+    "golang.go"
+  ],
+  "postCreateCommand": "sudo apt update && sudo apt install -y netcat && go mod tidy",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "go.useLanguageServer": true,
+        "go.gopath": "/go",
+        "go.toolsManagement.autoUpdate": true,
+        "go.testEnvVars": {
+          "GOMAXPROCS": "2"
+        }
+      }
+    }
+  }
 }
