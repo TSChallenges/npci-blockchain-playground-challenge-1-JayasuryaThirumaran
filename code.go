@@ -1,42 +1,47 @@
-public class Main {
-    public static void main(String[] args) {
-        // Test Case 1: Stock Analysis
-        StockPortfolio stock = new StockPortfolio("AAPL", 10, 150.0);
-        stock.updatePrice(160.0);
-        System.out.println(stock.calculateProfit());
-        System.out.println(stock.getCurrentValue());
-    }
+package main
+
+import (
+	"errors"
+	"fmt"
+	"sort"
+)
+
+// FilterAndSort filters numbers greater than or equal to the threshold and sorts them.
+func FilterAndSort(nums []int, threshold int) []int {
+	// TODO: Implement this function
+	return nil // Placeholder return
 }
 
-class StockPortfolio {
-    private String symbol;
-    private int quantity;
-    private double buyingPrice;
-    private double currentPrice;
-    private double highestPrice;
+// FindMostFrequent finds the most frequent word in a slice of strings.
+// Returns an error if the slice is empty.
+func FindMostFrequent(words []string) (string, error) {
+	// TODO: Implement this function
+	return "", errors.New("not implemented") // Placeholder return
+}
 
-    public StockPortfolio(String symbol, int quantity, double buyingPrice) {
-        this.symbol = symbol;
-        this.quantity = quantity;
-        this.buyingPrice = buyingPrice;
-        this.currentPrice = buyingPrice;
-        this.highestPrice = buyingPrice;
-    }
+func main() {
+	// Test FilterAndSort
+	fmt.Println("Testing FilterAndSort:")
+	nums := []int{3, 10, 1, 7, 8, 2}
+	threshold := 5
+	fmt.Printf("Input: %v, Threshold: %d, Output: %v\n", nums, threshold, FilterAndSort(nums, threshold))
 
-    public void updatePrice(double newPrice) {
-        if (newPrice > 0) {
-            this.currentPrice = newPrice;
-            if (newPrice > this.highestPrice) {
-                this.highestPrice = newPrice;
-            }
-        }
-    }
+	// Test FindMostFrequent
+	fmt.Println("\nTesting FindMostFrequent:")
+	words := []string{"apple", "banana", "apple", "orange", "banana", "apple"}
+	result, err := FindMostFrequent(words)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	} else {
+		fmt.Printf("Input: %v, Most Frequent: %s\n", words, result)
+	}
 
-    public double calculateProfit() {
-        return (currentPrice - buyingPrice) * quantity;
-    }
-
-    public double getCurrentValue() {
-        return currentPrice * quantity;
-    }
+	// Edge case: empty slice
+	emptyWords := []string{}
+	result, err = FindMostFrequent(emptyWords)
+	if err != nil {
+		fmt.Printf("Error: %v (empty input case handled)\n", err)
+	} else {
+		fmt.Printf("Input: %v, Most Frequent: %s\n", emptyWords, result)
+	}
 }
