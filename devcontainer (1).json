@@ -1,0 +1,9 @@
+{
+  "name": "Chat Server Development",
+  "image": "mcr.microsoft.com/devcontainers/go:1.21", // Go environment
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": ["golang.go"], // Add useful extensions
+  "postCreateCommand": "go mod tidy" // Ensure dependencies are set up
+}
